@@ -1,0 +1,34 @@
+# seed.yaml — Automation Contract for organvm-vii-kerygma/kerygma-profiles
+# Schema: seed/v1.0
+# Generated: 2026-02-24 (IDENTITAS PERPETUA Sprint)
+# Category: infrastructure
+
+schema_version: "1.0"
+organ: VII
+organ_name: Marketing
+repo: kerygma-profiles
+org: organvm-vii-kerygma
+
+metadata:
+  implementation_status: PRODUCTION
+  tier: infrastructure
+  promotion_status: GRADUATED
+  last_validated: "2026-02-24"
+  generated: "2026-02-24"
+  sprint: "IDENTITAS PERPETUA"
+
+agents:
+  - name: ci
+    trigger: on_push
+    workflow: .github/workflows/ci-python.yml
+    description: "Continuous integration pipeline"
+
+produces:
+  - type: profile_registry
+    description: "Per-project social identity profiles for multi-tenant distribution"
+    consumers: [ORGAN-IV]
+
+subscriptions:
+  - event: promotion.completed
+    source: ORGAN-IV
+    action: May trigger new profile creation for promoted repo

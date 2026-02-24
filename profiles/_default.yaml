@@ -1,0 +1,39 @@
+profile_id: _default
+display_name: "ORGANVM System"
+organ: null  # system-wide
+repos: []    # empty = catches all unmatched repos
+
+voice:
+  tone: institutional
+  hashtags: ["#organvm", "#creativetech", "#buildingpublic"]
+  tagline: "Eight-organ creative-institutional system"
+
+platforms:
+  mastodon:
+    instance_url: "https://mastodon.social"
+    access_token: "op://kerygma/mastodon-system/access-token"
+    visibility: public
+  discord:
+    webhook_url: "op://kerygma/discord-system/webhook-url"
+  bluesky:
+    handle: ""
+    app_password: "op://kerygma/bluesky-system/app-password"
+  ghost:
+    api_url: ""
+    admin_api_key: "op://kerygma/ghost-system/admin-api-key"
+    newsletter_slug: ""
+
+channels:
+  - channel_id: mastodon-primary
+    platform: mastodon
+    max_length: 500
+    enabled: true
+  - channel_id: discord-announcements
+    platform: discord
+    max_length: 4096
+    enabled: true
+
+calendar:
+  events: []
+
+rss_feed_url: "https://organvm-v-logos.github.io/public-process/feed.xml"
