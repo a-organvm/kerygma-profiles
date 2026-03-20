@@ -1,0 +1,91 @@
+profile_id: amp-lab-media
+display_name: "AMP Lab Media — Object Lessons"
+organ: II
+repos: [amp-lab-media]
+
+voice:
+  tone: [intellectual but accessible, cinematic, curious, warm, observational]
+  hashtags: ["#ObjectLessons", "#FilmObjects", "#VideoEssay", "#CinemaHistory", "#FilmAnalysis", "#VisualStorytelling", "#MovieDetails"]
+  tagline: "The recurring objects of cinema — traced across 100 years of film"
+
+platforms:
+  youtube:
+    channel_url: "https://www.youtube.com/@AmpLabMedia"
+    # Primary platform — all long-form content
+  youtube_shorts:
+    channel_url: "https://www.youtube.com/@AmpLabMedia"
+    # Discovery funnel — 15-60 sec clips from episodes
+  mastodon:
+    instance_url: "https://mastodon.social"
+    access_token: "op://kerygma/amp-lab-media/mastodon-access-token"
+    visibility: public
+  bluesky:
+    handle: ""
+    app_password: "op://kerygma/amp-lab-media/bluesky-app-password"
+
+channels:
+  - channel_id: youtube-primary
+    platform: youtube
+    content_type: object-lesson
+    max_length: null
+    enabled: true
+  - channel_id: youtube-shorts
+    platform: youtube_shorts
+    content_type: clip-extract
+    max_length: 60  # seconds
+    enabled: true
+  - channel_id: mastodon-primary
+    platform: mastodon
+    max_length: 500
+    enabled: false  # enable after rebrand
+  - channel_id: bluesky-primary
+    platform: bluesky
+    max_length: 300
+    enabled: false  # enable after rebrand
+
+content_types:
+  - type: object-lesson
+    cadence: biweekly
+    format: narrated-hybrid
+    duration_range: [600, 900]  # 10-15 min
+    structure:
+      - cold_open: 60  # seconds
+      - thesis: 60
+      - historical_survey: 360
+      - analysis: 120
+      - closing_montage: 60
+      - cta_endscreen: 30
+  - type: short
+    cadence: 2x-weekly
+    format: clip-extract
+    duration_range: [15, 60]
+    source: object-lesson  # extracted from long-form
+
+calendar:
+  events: []
+
+seo:
+  primary_keywords:
+    - film objects
+    - cinema objects
+    - objects in film
+    - video essay
+    - film analysis
+  secondary_keywords:
+    - movie props
+    - film symbolism
+    - recurring motifs
+    - supercut
+    - film compilation
+    - cinema history
+    - film history
+
+rss_feed_url: ""
+
+# Event subscriptions
+events:
+  produces:
+    - content.published
+    - content.milestone
+  subscribes:
+    - organvm.metrics.refresh
